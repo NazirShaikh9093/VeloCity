@@ -1,13 +1,13 @@
-package VeloCity.VeloCity;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VeloCityApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VeloCityApplication.class, args);
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
