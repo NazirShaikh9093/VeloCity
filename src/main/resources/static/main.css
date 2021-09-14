@@ -1,0 +1,20 @@
+img {
+    width: 286px;
+    height: 175px
+}
+
+card.{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.btn {
+    text-align: center;
+
+}
+
+footer {
+    text-align: center;
+}
