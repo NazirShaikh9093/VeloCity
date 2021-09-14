@@ -23,13 +23,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource);
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/posts").hasRole("USER")
-//                .antMatchers("/users").permitAll()
-//                .and().formLogin();
-//    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/posts").hasRole("USER")
+                .antMatchers("/users").permitAll()
+                .and().formLogin();
+    }
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {
