@@ -23,3 +23,8 @@ footer {
     width:65%;
     height: auto;
 }
+
+#rentButton {
+    width: 200px;
+    height: 170px;
+}
