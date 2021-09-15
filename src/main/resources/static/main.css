@@ -18,3 +18,8 @@ card.{
 footer {
     text-align: center;
 }
+
+.viewingCar {
+    width:65%;
+    height: auto;
+}
