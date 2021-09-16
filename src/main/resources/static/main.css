@@ -20,11 +20,18 @@ footer {
 }
 
 .viewingCar {
-    width:65%;
+    width: 100%;
     height: auto;
 }
 
 #rentButton {
     width: 200px;
     height: 170px;
+}
+
+#specifications {
+    border-style: solid;
+    border-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
