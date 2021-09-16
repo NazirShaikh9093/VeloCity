@@ -1,7 +1,10 @@
 package VeloCity.VeloCity.Registration;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class RegistrationService {
     public String register(RegistrationRequest request) {
-        return "working";
+        return "everything is working, peroidt";
     }
 }
