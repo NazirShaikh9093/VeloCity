@@ -7,7 +7,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
-public interface RenterRespository {
+public interface RenterRepository {
     Optional<AppUser> findByEmail(String email);
 
 }
