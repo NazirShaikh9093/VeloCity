@@ -33,8 +33,8 @@ public class AppUser implements UserDetails {
             generator = "renter_sequence"
     )
     private Long id;
-    private  String name;
-    private String username;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
@@ -42,20 +42,17 @@ public class AppUser implements UserDetails {
     private Boolean Locked;
     private Boolean enabled;
 
-    public AppUser(String name,
-                   String username,
+    public AppUser(String firstName,
+                   String lastName,
                    String email,
                    String password,
-                   VeloCity.VeloCity.appuser.AppUserRole appUserRole,
-                   Boolean locked,
-                   Boolean enabled) {
-        this.name = name;
-        this.username = username;
+                   VeloCity.VeloCity.appuser.AppUserRole appUserRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         AppUserRole = appUserRole;
-        Locked = locked;
-        this.enabled = enabled;
+
     }
 
     @Override
@@ -71,8 +68,12 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
+
+    public String getFirstName(){ return firstName;}
+
+    public String getLastName() {return lastName;}
 
     @Override
     public boolean isAccountNonExpired() {
