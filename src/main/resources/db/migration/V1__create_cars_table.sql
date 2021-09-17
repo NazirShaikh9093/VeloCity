@@ -4,6 +4,6 @@ CREATE TABLE cars (
     model varchar(30) NOT NULL,
     description varchar(250) NOT NULL,
     price float(10) NOT NULL,
-    mph float(10) NOT NULL,
+    transmission varchar(30) NOT NULL,
     available boolean NOT NULL
 );
