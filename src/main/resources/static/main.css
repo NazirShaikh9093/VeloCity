@@ -1,0 +1,37 @@
+img {
+    width: 286px;
+    height: 175px
+}
+
+card.{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.btn {
+    text-align: center;
+
+}
+
+footer {
+    text-align: center;
+}
+
+.viewingCar {
+    width: 100%;
+    height: auto;
+}
+
+#rentButton {
+    width: 200px;
+    height: 170px;
+}
+
+#specifications {
+    border-style: solid;
+    border-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
