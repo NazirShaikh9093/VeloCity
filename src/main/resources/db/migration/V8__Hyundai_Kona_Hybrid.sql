@@ -1,9 +1,9 @@
 INSERT INTO cars
 (model, price, transmission, seats, quantity, description, image1, image2, image3, image4, available)
-VALUES ('BMW i3', '16000', 'Automatic/Manual', '4', '5',
-'The latest Vauxhall Corsa is miles better than the car it replaced, offering a much more convincing blend of performance, economy, comfort and driving pleasure. It looks good, boasts one of the best petrol engines in its class and has benefitted hugely from the thoroughly modern underpinnings shared with the latest Peugeot 208. All of the technology on-board is bang up-to-date too, but we can’t help feeling the whole package is a little overpriced; key rivals like the Ford Fiesta and Renault Clio are similarly rounded, but better to drive and cheaper to buy.',
-'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/BMW+i3/BMW+i3+image+1.jpeg',
-'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/BMW+i3/BMW+i3+image+2.jpeg',
-'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/BMW+i3/BMW+i3+image+3.jpeg',
-'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/BMW+i3/BMW+i3+image+4.jpeg',
+VALUES ('Hyundai Kona Hybrid', '140', 'Automatic', '5', '20',
+'The Kona Hybrid is really only the version that you should look at if you’re a company car chooser who’s not quite ready to commit to full electric. Its official CO2 emissions are low, to help with BIK rates, while its practicality remains so-so, its scores in these areas are, in truth, in the same ballpark as those of one of its main rivals, the Toyota C-HR. But it’s hard to look past the fact that the 1.0-litre version of Hyundai’s small SUV will get pretty close to the Hybrid’s efficiency in real-world use - as well as being considerably cheaper and no worse to drive.',
+'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/Hyundai+Kona+Hybrid/Hyundai+Kona+Hybrid+image+1.jpeg',
+'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/Hyundai+Kona+Hybrid/Hyundai+Kona+Hybrid+image+2.jpeg',
+'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/Hyundai+Kona+Hybrid/Hyundai+Kona+Hybrid+image+3.jpeg',
+'https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Car+images/Hyundai+Kona+Hybrid/Hyundai+Kona+Hybrid+image+4.jpeg',
 'TRUE');
