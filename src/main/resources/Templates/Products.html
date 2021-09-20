@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Velocity</title>
@@ -83,9 +85,28 @@
         </div>
     </div>
 </div>
-</div>
 
-<p th:text="${cars}"></p>
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div th:each="car: ${cars}">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="${car.image1}" class="card-img-top" alt="Image failed to load">
+                    <div class="card-body">
+                        <h5 class="card-title"><p th:text="${car.model}"></p></h5>
+                        <small th:text="${car.seats}"></small>
+                        <small th:text="${car.transmission}"></small>
+                        <small th:text="${car.price}"></small>
+                        <br>
+                        <a href="/car" class="btn btn-dark">View Car</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer>
     copyright velocity blh blah blah 2018
