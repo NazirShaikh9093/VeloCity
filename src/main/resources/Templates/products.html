@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Velocity</title>
@@ -20,7 +21,8 @@
 <nav class="navbar navbar-expand-sm navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Website+images/logonavbar.png"alt="" width="30" height="10" class="d-inline-block align-text-top"
+            <img src="https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Website+images/logonavbar.png" alt=""
+                 width="30" height="10" class="d-inline-block align-text-top"
                  id="logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarRightAlignExample">
@@ -46,55 +48,26 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" th:each="car: ${cars}">
             <div class="card" style="width: 18rem;">
-                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-toyota-prius-limited-129-1544565952.jpg" class="card-img-top" alt="...">
+                <img th:src="${car.image1}" class="card-img-top" alt="Image failed to load">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <small> 4 seater, 2 air bags, something else</small>
-                    <a href="/car" class="btn btn-dark" id="cardBtn ">View Car</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://car-images.bauersecure.com/pagefiles/92696/toyota_prius.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <small> 4 seater, 2 air bags, something else</small>
-                    <a href="#" class="btn btn-dark">View Car</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://iheartcraftythings.com/wp-content/uploads/2021/04/Car-DRAWING-%E2%80%93-STEP-6.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Toyota Prius 2015</h5>
-                    <small> 4 seater, 2 air bags, something else</small>
-                    <a href="#" class="btn btn-dark">View Car</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMVFRUWFxUVFhUVFxUVFRUYFhUXFxUVFRcYHSggGBolHRUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGi0lHyYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAPwAyAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAgMEBQYHAQj/xABDEAACAQICBgcFBgUCBQUAAAABAgADEQQhBQYSMUFREyJhcYGRoQcyQrHBFFJictHwIzOCkuGywhVjc5OiFzRDRFP/xAAaAQABBQEAAAAAAAAAAAAAAAAAAQIDBAUG/8QANBEAAgECAwQJBAICAwEAAAAAAAECAxEEITEFEkFRE2FxgZGhscHwIjLR4SNCFFJikqIz/9oADAMBAAIRAxEAPwDuMIQgAQhCABCEIAEIQgARqpWVd5A+flK3S+NZSETlckb89wEpzUJmPjNrwoTdOMbta8rlqlhXOO83kaCppNBuufSMNpU8AB6ymBi9qY1TbOKk8rLsRaWEgiyOkm5+gng0g3M+krg09BlV7RxT/ux3QQ5FmNINz9BHE0geyVYMcpqTuF4+ntTFp23m/F/kjlRhyLhMaDvEfSup4+cp1wtT7pjgp1B8JmxQ2lirfyU3/wBWV5UocH5lzCVdPEMu+47DJtLEAzWo4unVy0ZBKDQ/CEJaGBCEIAEIQgAQhCABCEIAEIQgAQhImkMT0aE8TkIypUjTi5y0WbFinJpIpNLVR0rEHIWBPAEZfvxjBq7W+x7ePnIuLfh598s9XdGKVao63DZKDusN7DtJ+XbOQhRqYyvJRe7vXb5fM7dtzXlu0qSb4ZIjbMSUl+2iaR4EdxP1jbaHXgzeh+kfLYmKWm6+/wDKREsXT6yjz4TzpDJukcOKNrNtMcwCLCw4kyrqVGOdlHmZQrYaVKW5P7l1p+hZpyU1vLQfFcx1ca43G3pINmte+W7dbPh8jImIOcbCLi7xbXZdfgk6OMuBeLpKoPj8zf5x0aXqD4r+AmbV5M0VSFSqqNcA8t+4mWac8RvKMakk27fc+Pf7DJ0Kai3JLwL5NME5MFMUcSDmot6xOL0GAt6RO0ODG+12X4GU1DEkGxyMtYmeMw7Uaz3lwevg7JlanTpVE3T8DUYPF36p8JPmap1Li8uMBiNoWO8eomts7H9L/HPXg/YqV6O7mibCEJrlYIQhAAhCEACEIQAIQhAAmb0ti9pyRuXId/E/vkJb6SxPRobbzkPHjMrXbhy/ZmDtnE2Sox7X7fntSL+CpXe8/nMTQomo6oN7G1+Q338BebSlTCgKBYAAAcgN0pdWcNk1U8eqvcD1j5i39Mv5Z2Thuio771ln3cPyNxtXenurRevEIQjVepsqW5Amajds2UjPaXqbVVuyw8t/qTK5487Xuef1jFrkATga9XpakqnNt/jyN6lDdio8iwbD2wt/xg+Ga/UyjxIzE2WkKNsOy8lHoQfpMfiuE0toUOgnTj/wXir3I8HU31J9b8CPaWGhGtXp/mt55SBJGBfZdW5Mp8iJVpy3ZxfJp+DLNRXg11P0OgTLayYXYcVBuff+Yb8u0TVSq1gw23RJ4p1h4e96X8p1W0qHS0JK2azXajEwtTcqrk8vEz+Crdss8NiLMCDuOfLxlLQOYvLOmZxsKjpyTialaCZp1N4qQdGVbrbivy4SdO5oVlWpxqLijFlHddghCEmGhCEIAEIQgAQhImkMR0dMtx3DvMZOcYRc5aJXfcLFOTsil0xitpzbcuQ7+J/fKVCIWYKu9iFHjx8N/hHcQ3Dl8zv/AH2Sfq1h9qo1Q7kFh+Zhn5D/AFTkKcZYzE/V/Z59S4+WXgbeVCjdcFl7eZosPRCKqDcoAHhHoQnYpW0MMJWabrWTZ+8fQZn6Szmd01V2qluCi3jvMz9qVujw0ubyXfr5XJ8NDeqLqzK5zH9D0tuqvIHaPhn87SK5lxq3S95+5R8z9JzOz6XSYmEeu/hn7GpXluUmy10gP4b/AJG+RmGxXCbvGfy3/K3yMwuK3Cau2l/LT7H6og2d9su1ehHjiCNCOrMaS4GizfYWptIrcwD6RyooIIO45HxlfoGpeivYSPW49CJZztcPU6SlGfNJnOVI7snHk2YSrT2WKnepI8jaTKLZT3T9HZrMfvAH0sflGMK04nF0eiqShyb8OHkbkZb8FLq+eZc6Mq2cduX6S8mXpPYgjhnNKj3APMXm9sGvvUpU3wd+5/teZl4qFpJi4QhN4qhCEIAEIQgATP6bxF3C8EFz3n9jzl3WqBVLHcATMdiapNyd7G5/fnMXbOI3acaa45vsX5dvMu4KnvT3uXz0I9R95M12hcN0dFQd56zd7Z28Mh4TL6PodJVROBa5/KuZ87W8ZuJFsShZSqvsXq/Ym2hPSHf88whCE3zMEVHsCeQJ8pkqj3JY8ST5y/0zW2aduLG31MzrGcxt2tepGkuCu+1/r1NLBQychtzNPoSls0V7bnz3elplrXIA3mbSlT2VCjgAPIRdh071Jz5K3i/0Lj5fTGI3jv5dT8jf6TMLitwm50ibUqn5G+UwuKOQkm2v/rT7H6ofs77X2kdTHkMYXfH6cx5GhI0+rFX317iPkfpL+ZPV+ts1VH3gR9fpNZOn2RU3sMl/q2vf3MPGRtVb5me1op/y2/MD6EfWU2GbOaLWZb0b/dZT53X6zNYc5zF2xDdxDfNJ+3sXsG70exssEM0Wj3vTU+HkbTNKZoNDN/D8T9IbClbEuPOL8miHGR+i/WWEIQnWmaEIQgAQhCAFTp+tZAg+I+g/zaZis2cttPV71SOCgDx3/X0lVg8K1d9he9mO5RzP6Tkcc5YjFyUc/wCq7v3c2cKlTpXeXHx+IttVKN2qVOQCDvPWb/ZNNKrD4b7OmwjXzJJYXuT3eEl0q7bN2Sx5X/dp0uDodDRjB68e15mZiKnSVHJaEqEwHtU09iqOCY4NXWptDpKigM1KkAS7qPIX4Ak5b5z/AB50xo2lhsUca1T7SaYVekqVbO67a03p1tpSDu2lIPpLJFbI6/pyrdwv3fmc/laVdSOF2bN7Fj7xGQvxsDuF4zWM4TE1umrSq83l2cPKxt0YbsVEf0TT2qyDkb+Wf0mvmb1Yp3dm5C3mf8SZpvWDD4QXrVAptcIOs7dyjPxOU6XY0N3Db3Nvyy9Uyji96pWUIq7tayJOmntQfuA8yB9ZicS26UusPtFqVw1OggpoctprM58+qnr3ylTWeqBZgrkcdx8bZHwkG0qEq9VShnZW8zWwWArwp/Us2+fUasGeiraZrD6YqVb9ZE7BZWPcXNjENiAwzY35u1/JbEDylOGzqj+5peZc/wAdp2Zpqem0pOrXJ2WUm1twOeZsL9l5o8Lr/gnNi7p3pcf+G1OYvgVfMsx7VZXt/TYGQ6mjXHWpMKgF/dFmH9B3+BM18JSWHg4xeuefzIhq4DD1c5t3Xzk0dqxmkKNehU6Kqj2F7KwJFiDmN43TN0t859ojFE1aVwL9JTF875uBznQKe+ZO2HvVIvq9yFYP/GW7e98/YkYnG06QBqMFubKMyWPJQMye6aDVvELUpFlvbaIsylWBGRBU5g98y2IFXbBpLUN02b03p0rZttK9RlYqp2lN0F7oOyafVqiyUjtm7FizEMzi5tltN1msABtHfa8l2VQowlCanebTuuSz/Rn4t/xu65cVn3artepdwhCdGZYQhCABElrC5ipD0q+zRc9lv7jb6xs57kXJ8E34ZixW80kZPF1CxPNju45nd6zUaIwQo0wvxHNjzP6DdMXpjTCYQiq1r7Vkvuud7HsVdpu8KOMl6oa6LiKGJxNdglKnXFNGa2Y6KmxAAGfWYm2Zz7MsXYuH+h15Zt3S7tX3v0L2NqaU1pr+PI2rHjGXlZoHWOhjRUOHcsKTBGuLZkbQI5gj5GWFZrTcKBV6UQEicnbS3/ENJ4LCKP4WjhWLg7i9FzTpt+IdTD5/iadO0njVpK1aobIgLtbM7K5mw4nsnLvZBo1gcXiqgIZ3FJdogtb+ZUuwyNy1PMcpR2jW6PDTfG1l35E9Cm5zWWV/2dKSMVTJA3SLUbOcclkkbUdSi1h1jr4f+DQITaUO9S12G0WAVSchkL3tfPhMJiKhLFixYnNmYkknmScz3mWmtmKLYqoL5LZR/Sq39bylM6bDXjh4R6vXP3NrC0oQpqUUrtXb4u/N69R7AQnklLURxc8pYYcKOAJ7c5WgyRSeSx0CabRZbSncLHmuUSa5BzOfBhx7+2RRUnjPcWMcQqFtS6wuxUqIzjZqB0O1u2usLbQuLnk3zmtpHOc5weLqBlG0xCsGtvAI3GxNvUTRYfWgL79Mk/8ALOf9r29CZlbRoVKrTgr5d5TxGHnfLM2AMutWsctQVEX4Ctzz2hfytbznNK+sj1SEpUztMbKvvm/Dqj32455DkbBppfZzXYVKyMQSRdiG27sD1rt8R6xzz8ZNsvAyoS6Seryty7ev0MzG4WaoSlLJrO3HW18uB0OEITcOfCEIQAJn9bdLrh6NrKzv1VRvViBnYfMiV2u+tbYS1OgoesbEgqWAU3tkpuSSB6zFaR0s+JfpqoCtsqpQZqthmov+IsbHnI5TWho4PAzqONSS+n15dzKnXPR+JxgoHDJUrW21qgbN0ZiuxcZWU2I2twtmRKzXtWwa4TRob+XS+0VmXJXq1mYMRzChNkHkTzmjwemugbaUWO7I7xyINwR2ZbuEfTSWDxdQNpCjTqMn8qoEqLZd5pVkDNtre7DNhmbgcUpOEIqKVkvAlxmArObqRV15l/7H9ENhsEalQWfEP0oByIphQtK/eNp+5xNbjMRwmT0hr5h0H8MtVbkin5mwEx+ldaa9cMv8tGBBC5sQd4Zz/tAjpVEivQ2diK39bLm8vLUstfNPJVQYakdoMyl2A6pAN1RPvXbZNxlkBneXmr2j/s+HSkfesWf8zG5HhkPCUWpuiqOyMQTtvchQd1Mg2BtxbiCdwItzmuBnLbVxfSy6NcHn+PmuVjXdOFKCo0+Dd29W/wAL5zF1DlIROckV3kQmZuoyJyOpiS2OxyNvGJrMP+4yW8gsel5rnoIU8T9tTJay7FQcqq263cyrfvVucohOloVIzpRceS8UrPzNTAOXQJS4X9T2EISUvRFRSmIEWiFjYC55CLF2H3FbUlYfCls+Edw+DCZtmeXAQqYktkmQ4ngJJZsic75R8TyqqLvN/wAIyH6mJq4fLaYBRcZbmIJsSBbLfxiemCe7m33j9JHNQsbn95yS1kNUXb58+cC80W5c9DhwKe3ZCSf4j34Mx91LAkgWGXGdX0BolMPTCIiBlADOALsbZsWIud5y4bpxvVuvs4ukb2G3s/3bSf7p1gY1gSd3O54WGZ7MiZPSV8zmttVHGpGmtGt7teaz52tx5vqtqKbXE8jWCYGmjKbgqGB53F7+sJIYtiRCEICHKtcNHnE6Xp0swClK5HBV2mc99t3aRHPaDTRGoLTVVtTIsoA6oYbI/wBUn1aoXTFZ3IHUWmpOQ/kq2/tvKLW5+nviUzpq5w9+A2AHVu5iz59g5yF6M36Em61GL+2MF2Xkn5/gX9jw9OmFxVGpTptTSquKUkqSyqdkjNfebZAOfVJtneVGntXzhtmotRalNxtIy7iNpQcs7HrrxI37oYDWarRuoO0h96k426Lc7A5i/IefCR9LaUWqAlOkKSDPYXaKqepu2uJ6OnkBYBLDebMe40rK0urR9bLFGljKdf6pXg768PnVddWRXOoOfHmN/wDmI2iO3u/SLRSxCqGZibBVBZieQUZmOY3B1aJAq0qlMndtqVv3E5E90DTcop2vny4+Gp5gsU1N9uk1jxFzst3jnNXovWZWstTqN27j3HjMXWYWvx58Y0xuJUxGDpVvu15jJ0Yz11OpmttbjeJvOe4DSlWlkHtyDZr++4y2oa2sDapSB7Ub6EfWZNTZlWP25r5zKU8NNaZmmxmEFek9FvjHVP3XGaN4EDwvOYnkRYjIjkeIm5wWsNOqSq3pHZJD1R1AeA6hJJ7LcDmJUDV6jvfHUjxNkrXPP/4zLeBw9WClvKyyt7+xNhpOneMr8ODfojOxSi5sASeQzPlND9hwNPfVqVT2AAeZK/IzwaSpjq4ejc9vWJ/pUAed5odEy5GpJ/bF9+XqV2G0SzZt1R5n9B4+UlVHp0hsr6Zk95icTWqH+Y4UfdFtr+xd3jaRGrqvurn95sz4DcI9U0hyUpau/Zp4i6rE5v1Ry4mMVa18hkOX6xDPc3OZiSY8mSEmKp7/AF8s/pExQ3HyiaiNnitbke/dLfD4hloVCWOeRHCxIBy45GVdBLzVasaGGKboWNlaxJ/CrBiPEAjxjkuBTxFSEFvy0TTfcda0HTK4agp3ilSB7wgBhJ1oSexxDd3c9hCU+sekDRpAqQr1HWkjMLhWa/WI42AJtztFHRi5NJGC11qg4yrbhsL3kIL/ADt4Shw2mhhrrVQ1MNUBSvTHvDMFatPk63Pf3gWkadR6dZ1dize9tne4b4j23BHeDKitZgVI2hvtuJHEA8Dx8JBfO509OgpUFTvlZZ+jXeWT6qtUXpsE6YqifdZHVWH4aiPbZYcRv7BIlXQOJQFqiCko3l6lMKO8hjK1KFKiekw+IrU3+8pKVPyvZtkj07J7j9KVa5BqVGfZyXat52UAX7bQyJaX+Y3aTjbm097wul36dp0H2dYJUoNiMi7syBvu00sLC/NgxPPq8pd6Ywi16T0nFwwNvwt8LDtBsZjtRtYadNDh6zBOsWpsxsvW95CTkDe5BO/aPLO31j1lpUqTLTqI9VgVUIQwUke+xGQte9t5y7TJE1umHiqFeWLdk7t5Pq4O+llp1HOKmxYNbMqbqc1z3MO3s8QeAi363YeUU7ZW5C08pjrSDdV7nUWHweEbZM7jhb52g5hfLvI+pisVIk0qtG2aVL8w4F/NDFGtR4Uqh76g+iCQhPbwJFpq/F/kmHFr8NFB37bfNrekbfG1CLXsOS2QeS2ke8Ig6y+Z+oT2ELwsOuexMJ5eJYS57eLC8Ihef77IoNHDGyZSIE2/s3x1IYgqT1mUqvfcH6WmM0Y1FDt10arl1aQbYUngWYZ27Bvmt9m2inr4k4tlC0kuFCjZUufhUcl/SPjqZ20FHoJ790ra83yXM6zCEJMciEpdbNF/aMM6L74s6fnXcPEXHjLqRNIY1KNNqtVtlFzJPkAAMySbAAZkmA6EnCSlHVHLq6/bsOCP/cUciDkWHEeNvAjtmPqv4EZciCN4I4GanTOIf7Q2Lo0jQ2jcKxBLgjMuoyUtv2bnneIxVChpDroy0MT8SPklQjt4Ht38wd8ikmsmdJhMRHc3l9j/APL4prXdvmmjGvmbmeSZpLRVegbVabJ2kXQ9zDI+chRljWi01eOh7eLBjd4q8AEMYpYmoYKYi1EFEwJyHifkP1nl4naz37svr9YA2KE9vPJ5FHXFzy8TPYgbx7eeXhCIw3gvATwmF4aCbwq/ARSi09p5Z/s/4lBprSxuadM9jMPVV+pjkmyGviIUIb0+5czZ6n0MJiMT0eIxKU0Wx2S4Q1GJ/lqzHsztnw43HecFQppTVKQVUUAKFtsgcLWnyPooICGqltgcEttHsUnId/pNRo72i4rCuDhV2aQ30qrmqGHaQFse0CWIxsjlcbi54id5PLguCPpmEzOo2t1HSdDpaYKVEstWiTdqbEZZ/Epzs3Gx3EEAgUzTTkGvmtgfG9CD/Cw5tzU1bWdyOOzcqBz2uc6ziquwjP8AdVm8hf6T5PxFdnZnY3LMSx5km5PmTHREZea3a0tWXZUkIN3Mk8T2mU+j9Z9y18yN1UDrf1ge9+YZ9++U+kq1zblIPziTV9SehiJ0Jb0H++063o3WuvSACttIQDZ+upBFxvzsRJLawYapnVwVEniyFqRP9v6zBUWNTA2VrVcMdrK4YIb3Xtyz5Woyso6bqjeQ3eM/NbSNwfA1ae0KEnecLPnF/iz8mdL+1aPP/wBZx3VWPzMh6TqYYj+BTZDx2nLfMy11K1GOkcFTxYr9EzmoNgptr1HZLg7YPwyJj9WKdGs1B8cilTYu9GqtIG17NVBIXvNh2xjiy3DG4a91N9+973M41+yTsHg1b36myOxdr/cJeY3ULEUzSAq4eoKxCoVd7G5UAk7By643XljS9l2MPv1sOnc1R/TYWN3GTf5+G/3Xn+DI1sGo92pfvXZ+pkSpTI4X7RnOhf8ApXU44xL/APSb57cqNL+z/G0AXS2IUb+iv0nf0bDPuUk9kVxYsdoYWdoqfjdeqRjr2zHiI4tQH95wcgkhhZgbEHJlPIg5g98S1K/b3xma0LKuvtzHLT2R9kj4T4Ezy55H1iXDftwJBaINSICHlHVojex8B+sVMW8nohsvHkXifKSNGaNq4mp0eGpNUbjs7l7XY5KO0kS+1q9nlXDYCviquIUNTQHoqSmxJZVsajEXHW4KI5RbK1bGUqH3PPkYDTGl99Omc9zMOHMKefb+xT4OgGNz7ozPcOHyEZ2ZMo5LbmR5D/JMsRikc5isVOvLel4cF88ydo3R1XE1RSooWY5hRkFUb2YnJVGWZl1pfUXF4ek1ZhSdUBZxTdmZFG9irKLqOJUm2/dnNLoCv/w3R1KutNWq4ttpme4VUAJpqSM/dzA5ux4Wm+wdUVadOoVKioqsVbeAwzVvAnwjk1exA6UlBVGsm2vDzOUeyTShoaTogHq1tqi44EEEp4hlFu884Sv9mlDb0ng1S5Aq7QPHZpoz3PgvrCEiM+nMTR20ZD8SlfMWnyfpSm1MvTYWZHZGHIqbEeYM+tpx32t6huztjsMpYML16ai7AgZVkA3i2TAd/OyIDhtc5xKvY34/v93juISxjEGBd4PTKU6ZUK20wdXGVjtXzud+VhblcZykGQhabb2Z6BFXEJiKyk0qRDIvB3B6pP4FOfaQBuvC4p33UXR32LR+GwzZOlMFxyd7vUH9zNM9pChSpaYHSIrUdIUCpDDIV8OCyWPAlNvPmRLiniyd8xntT0h/DoJTYriFqCvTcGxpBbgvfmTkPynlEQgjWTTOjtEVx0Rq1ayEuMIjqKNN2HvVW2eqc77Iub2JG4zM4n206QLXVMMi8F6N2Nu1i+fpMFWwjAksbkkkm9yScySeJPOeYbDXJLbh69ghZj8uJ17Vj2tYqudmpo+pXt7z4JajFeV6Z2h/5ibrRmstDE3FJiHX36VRWp1qf56bAEd+Y7ZwFNYcSlPoaVZ6VL7lIlLnmxXNj3mVtPGVUqLVSo61FN1e5LA959RuIyMdujbo+iNMaOw2K/n0kc7g+a1B3OtmHdeZPHag0znQrun4aiioO4EbJHjeS9XNP/asOlXIN7rqNwdfet2HIjsIlqK8Y4ompYmrSyhJpcuHhoYqrqRih7r0WH53U+RTLziRqbjP+V/3P0E3qVJJpmN3EWltXEparwMHhtQsS3v1qK/l23PkQo9ZfaN1CwyWNZqlc8mOwn9qZnuLGaSmskU0iqKIqm0MTPWfhl+/MlaNKUlFNEWmg3KihVHgIrWbRv2zBYjDAgGrSdFJ3BiOoT3NaM7BjlOoyxxTPk2tTZGKOCrKSrKd6spswPaCCI7Sadj9peoyYpmxWHK08Qf5iHJKxHxX+CpbK+42zsc5xvE4apRfo6qMjD4WFj3jmO0ZRUKzuXs/0vTr4OlTWxqUUWm6fENnJGtvKkAZ87jhIXtB1tShSehTcNiKilCFN+hVhZncj3W2TYLvzvu38bBv4eYmj1L1NrY+oFRStEHr1AMgOITgW+XHkX3EN37BNXiXq49hZVBoUb8WNjVYdgAVb8y44QnWtDaMTDUko01CJTUKqjOwHad54knMkkwkbzAspGxGKCxyq0hV6d4Acy9oGquExRNRaXRVTvqUsgx47ae6T25HtnNW9nuIJsjAjmVK/Uz6Fr4NeUiVaAG4CKByTQvsxAIbEPtW+ECy+POb7BYBKQAUWtlLN1keoIgB0s49rJpU18TVe+W1sj8qdVfQX7yZ1epfO2/hOFvUzMdEBzFVrKTx3DvO6IoUWcrSpgsxIVVGZZj9SYxUe5XsufHcJuvZNgFfE1KrC/Q0xs9jVTs7X9ocf1Rwha6K9m1JUBxLu9QjNabBUXs2iCXI55DvmT131Y+xOhRmejU2tktbbRlttU3IAByIIItcXyyuehatVcca9T7UrCmQzdawVHDAKtK3C1+ywBvffUe1usow9Cn8TVi4/KlJlY+dVIkXvK5JVpunPdun2O5T+zCub16fC1NwO27KT5W8p0Wis5/7KsIT09Th/DQd/WY/NfOdOw2GjXqMChSk+jQj2Hw0nU6EQCNToSXToSRTox9aUAIooxupQvLIU56KYgBncRoUvIVXUOjVyrDaHI2I8jNlCAGPwns00XTO19kpsfxC6/27vSauhRVFCoqqoyCqAAO4COwgAQhCADDxmoJIqLGmEAINZZBq05assi1KUAKp6cjVKUuGoxpsNACjelOI63aMbD4mrTIspJemeBRzcW7s171M+hXwsotaNU6eNpbD9V1uadUC7ITvuPiU5XXs4HOKmB8/U5sfZ5p5MJiGFZtmlWTYZyCQjBgyO1s9n3lNt23fhKbWLVrEYFrV0shNlqrc0m5Wbgfwmx7JWqco8DvGP0xhaNPpKuLw4S1x0dRazvy6NEJLegnHdatOtjsRthSqiyUqd9ohbmwNt7sSSbcTbcBKgU+Q+k6N7O9UKhqLXZCSPcJHVX8Q5ty5QbENfqZoD7LhqdJvf9+p+dt4v2Cy/wBM1mGw8kYDRNgNqWlLDgSMUiUcPJaUY8BPYAJCxUIQAIQhAAhCEACEIQAIQhAAjbU45CAEZqcbanJsTsCAEA0Yg0ZYsgidgQArjSjVWkeAluKYnvRiAGQx+iKlUFT7pyIOYPeJRD2SYVzdl2b/AP5/w/8ATOnbInsAMjoX2eYDDEMlBS43O96jDuLXtNTSoquQAEdhAAhCEACEIQAIQhAAhCEACEIQAIQhAAhCEAP/2Q==" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <small> 4 seater, 2 airbags, automatic</small>
-                    <a href="#" class="btn btn-dark">View Car</a>
+                    <h5 class="card-title"><p th:text="${car.model}"></p></h5>
+                    <small th:text="${car.seats}"></small>
+                    <small th:text="${car.transmission}"></small>
+                    <small th:text="${car.price}"></small>
+                    <br>
+                    <a href="/car" class="btn btn-dark">View Car</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
 <footer>
-    copyright velocity blh blah blah 2018
+    <a href="#">About Us</a>
+    <br>
+    <small>copyright 2021</small>
 </footer>
 </body>
 </html>
