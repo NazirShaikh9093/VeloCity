@@ -3,11 +3,11 @@ img {
     height: 175px
 }
 
-card.{
+.card {
     margin-top: 20px;
     margin-bottom: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .btn {
