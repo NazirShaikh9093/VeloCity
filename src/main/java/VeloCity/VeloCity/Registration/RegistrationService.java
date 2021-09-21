@@ -4,7 +4,7 @@ import VeloCity.VeloCity.Registration.token.ConfirmationToken;
 import VeloCity.VeloCity.appuser.AppUser;
 import VeloCity.VeloCity.appuser.AppUserRole;
 import VeloCity.VeloCity.appuser.AppUserService;
-// import VeloCity.VeloCity.appuser.email.EmailSender;
+import VeloCity.VeloCity.Email.EmailSender;
 import VeloCity.VeloCity.Registration.token.ConfirmationToken;
 import VeloCity.VeloCity.Registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -38,12 +38,12 @@ public class RegistrationService {
                 )
         );
 
-        String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
-        emailSender.send(
-                request.getEmail(),
-                buildEmail(request.getFirstName(), link));
+        //String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
+        //emailSender.send(
+                //request.getEmail(),
+                //buildEmail(request.getFirstName(), link));
 
-        return token;
+        //return token;
     }
 
     @Transactional
