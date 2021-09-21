@@ -1,14 +1,17 @@
 package VeloCity.VeloCity.Registration;
 
+import VeloCity.VeloCity.Registration.token.ConfirmationToken;
 import VeloCity.VeloCity.appuser.AppUser;
 import VeloCity.VeloCity.appuser.AppUserRole;
 import VeloCity.VeloCity.appuser.AppUserService;
-import VeloCity.VeloCity.appuser.email.EmailSender;
-import VeloCity.VeloCity.appuser.registration.token.ConfirmationToken;
-import VeloCity.VeloCity.appuser.registration.token.ConfirmationTokenService;
+// import VeloCity.VeloCity.appuser.email.EmailSender;
+import VeloCity.VeloCity.Registration.token.ConfirmationToken;
+import VeloCity.VeloCity.Registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
@@ -16,10 +19,11 @@ public class RegistrationService {
 
     private final AppUserService appUserService;
     private final EmailValidator emailValidator;
+
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.
                 test(request.getEmail());
-        if(!isValidEmail){
+        if (!isValidEmail) {
             throw new IllegalStateException("email not valid");
         }
 
@@ -64,4 +68,5 @@ public class RegistrationService {
                 confirmationToken.getAppUser().getEmail());
         return "confirmed";
     }
+}
 
