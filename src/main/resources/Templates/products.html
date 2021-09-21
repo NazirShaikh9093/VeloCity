@@ -51,14 +51,13 @@
     <div class="row">
         <div class="col-md-4" th:each="car: ${cars}">
             <div class="card" style="width: 18rem;">
-                <img th:src="${car.image1}" class="card-img-top" alt="Image failed to load">
+                <a th:href="@{/car/{id}(id=${car.id})}"><img th:src="${car.image1}" class="card-img-top" alt="Image failed to load"></a>
                 <div class="card-body">
                     <h5 class="card-title"><p th:text="${car.model}"></p></h5>
                     <small th:text="${car.seats}"></small>
                     <small th:text="${car.transmission}"></small>
                     <small th:text="${car.price}"></small>
                     <br>
-                    <a href="/car" class="btn btn-dark">View Car</a>
                 </div>
             </div>
         </div>
