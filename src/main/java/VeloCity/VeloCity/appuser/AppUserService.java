@@ -2,12 +2,13 @@ package VeloCity.VeloCity.appuser;
 
 import VeloCity.VeloCity.Registration.token.ConfirmationToken;
 import VeloCity.VeloCity.Registration.token.ConfirmationTokenService;
-import VeloCity.VeloCity.Registration.token.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,8 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Repository
+@NoRepositoryBean
 
 public class AppUserService implements UserDetailsService {
 
@@ -27,13 +30,13 @@ public class AppUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return RenterRepository.findByEmail(email)
+        return renterRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
     }
 
     public String signUpUser(AppUser appUser) {
-        boolean userExists = RenterRepository
+        boolean userExists = renterRepository
                 .findByEmail(appUser.getEmail())
                 .isPresent();
         if (userExists){
@@ -44,7 +47,7 @@ public class AppUserService implements UserDetailsService {
 
         appUser.setPassword(encodedPassword);
 
-        RenterRepository.save(appUser);
+        renterRepository.save(appUser);
 
         String token = UUID.randomUUID().toString();
 
@@ -58,7 +61,10 @@ public class AppUserService implements UserDetailsService {
         confirmationTokenService.saveConfirmationToken(
                 confirmationToken);
 
-        // TODO: SEND EMAIL TO USER
         return token;
     }
-}
+
+    public void enableAppUser(String email) {
+        renterRepository.enableAppUser(email);
+    }
+    }
