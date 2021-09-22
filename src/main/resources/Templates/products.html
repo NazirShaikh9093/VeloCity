@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Velocity</title>
+    <script src="https://kit.fontawesome.com/9d434a7969.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/stylesheet.css">
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Website+images/logonavbar.png" alt=""
+                 width="30" height="10" class="d-inline-block align-text-top"
+                 id="logo">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page">Welcome <span sec:authentication="name"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="jumbotron">
+    <h3> Rent a Car</h3>
+</div>
+
+<!--center cards inside columns -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" th:each="car: ${cars}">
+            <div class="card" style="width: 18rem;">
+                <a th:href="@{/car/{id}(id=${car.id})}"><img th:src="${car.image1}" class="card-img-top" alt="Image failed to load"></a>
+                <div class="card-body">
+                    <h5 class="card-title"><p th:text="${car.model}"></p></h5>
+                    <small th:text="'Seats: ' + ${car.seats}"></small><br>
+                    <small th:text="'Transmission: ' + ${car.transmission}"></small><br>
+                    <small th:text="'Price per day: £' + ${car.price}"></small>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <a href="#">About Us</a>
+    <br>
+    <small>copyright 2021</small>
+</footer>
+</body>
+</html>

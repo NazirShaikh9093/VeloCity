@@ -1,0 +1,190 @@
+
+img {
+  width: 286px;
+  height: 175px
+}
+
+.card {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+    background-color: black;
+    border: 3px solid black;
+    border-radius .25rem;
+}
+
+.btn {
+  text-align: center;
+
+
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+
+.viewingCar {
+  width:100%;
+  height: auto;
+}
+
+#rentButton {
+  width: 200px;
+  height: 170px;
+
+}
+
+#specifications {
+    border-style: solid;
+    border-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+}
+
+
+a {
+  text-decoration: none;
+  color: rgba(82,113,255,255);
+
+}
+
+li {
+  list-style-type: none;
+}
+
+nav {
+
+  background-color: black;
+  color: rgba(245, 245, 245, 0.61);
+
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.61);
+  /* color: rgba(82,113,255,255); */
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: rgba(82,113,255,255);
+}
+
+
+#logo {
+  width: auto;
+  height: 45px;
+}
+
+.jumbotron{
+  background-color: black;
+  color: whitesmoke;
+  opacity: 0.7;
+  text-align: center;
+  padding: 19px;
+
+}
+
+h3 {
+
+  font-weight: 10;
+  color: white;
+  font-size: 2.8rem;
+}
+
+#rentH2 {
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+
+
+.rentBody{
+  background-image: url("https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Website+images/liverpoolstreet.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Barlow', sans-serif;
+  background-attachment: fixed;
+}
+
+
+body {
+  background-image: url("https://rentcarswebsite.s3.eu-west-2.amazonaws.com/Website+images/liverpoolstreet.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Barlow', sans-serif;
+  background-attachment: fixed;
+}
+
+
+
+#rentCard {
+
+  background-color: black;
+  color: whitesmoke;
+  font-weight: 200;
+  opacity: 0.95;
+}
+
+button {
+  border-radius: 6%;
+  color: white;
+  background-color: #212529;
+  border-color: #212529;
+
+}
+
+.buttonContainer {
+  align-items: center;
+  text-align: center;
+}
+
+#carContainer{
+  margin-left: 4px;
+  padding-left: 4px;
+  margin: 0px;
+}
+
+
+
+form {
+  margin-top: 25px;
+  background-color: black;
+}
+
+.login_form{
+  border-radius: 5px;
+  background-image: black;
+  justify-content: center;
+  color: whitesmoke;
+  border-style: solid;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+  width: 30%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+#signinlogo{
+  width: 80%;
+  height: 80%;
+  display: block;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
