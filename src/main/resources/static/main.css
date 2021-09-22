@@ -7,6 +7,10 @@ img {
 .card {
     margin-top: 20px;
     margin-bottom: 10px;
+    color: whitesmoke;
+    background-color: black;
+    border: 3px solid black;
+    border-radius .25rem;
 }
 
 .btn {
@@ -77,18 +81,19 @@ nav {
 }
 
 .jumbotron{
-  margin: 10px;
-  height: 5px;
   background-color: black;
   color: whitesmoke;
   opacity: 0.7;
   text-align: center;
+  padding: 19px;
+
 }
 
 h3 {
 
   font-weight: 10;
-  color: whitesmoke;
+  color: white;
+  font-size: 2.8rem;
 }
 
 #rentH2 {
@@ -152,7 +157,34 @@ button {
   margin: 0px;
 }
 
-h6 {
-    color: purple;
 
+
+form {
+  margin-top: 25px;
+  background-color: black;
+}
+
+.login_form{
+  border-radius: 5px;
+  background-image: black;
+  justify-content: center;
+  color: whitesmoke;
+  border-style: solid;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+  width: 30%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+#signinlogo{
+  width: 80%;
+  height: 80%;
+  display: block;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
