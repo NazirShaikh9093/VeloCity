@@ -54,9 +54,9 @@
                 <a th:href="@{/car/{id}(id=${car.id})}"><img th:src="${car.image1}" class="card-img-top" alt="Image failed to load"></a>
                 <div class="card-body">
                     <h5 class="card-title"><p th:text="${car.model}"></p></h5>
-                    <small th:text="${car.seats}"></small>
-                    <small th:text="${car.transmission}"></small>
-                    <small th:text="${car.price}"></small>
+                    <small th:text="'Seats: ' + ${car.seats}"></small><br>
+                    <small th:text="'Transmission: ' + ${car.transmission}"></small><br>
+                    <small th:text="'Price per day: £' + ${car.price}"></small>
                     <br>
                 </div>
             </div>
