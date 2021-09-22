@@ -21,7 +21,8 @@ public class CarController {
     @GetMapping("/car/{id}")
     public String car(@PathVariable long id, Model model) {
         Optional<Car> car = carRepository.findById(id);
-        model.addAttribute("car", car);
+        Car carObject = car.get();
+        model.addAttribute("car", carObject);
         return "/car";
     }
 }
