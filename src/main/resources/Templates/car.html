@@ -41,9 +41,6 @@
   </div>
 </nav>
 
-<p th:text="${car}"></p>
-<!--<p th:text="${car.model}"></p>-->
-
 <div class="jumbotron">
   <h3> Product Page</h3>
 </div>
@@ -63,16 +60,16 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-<!--                <img th:src="${car.image1}" class="d-block w-100" alt="Image failed to load">-->
+                <img th:src="${car.image1}" class="d-block w-100" alt="Image failed to load">
               </div>
               <div class="carousel-item">
-<!--                <img th:src="${car.image2}" class="d-block w-100" alt="Imaged failed to load">-->
+                <img th:src="${car.image2}" class="d-block w-100" alt="Imaged failed to load">
               </div>
               <div class="carousel-item">
-<!--                <img th:src="${car.image3}" class="d-block w-100" alt="Imaged failed to load">-->
+                <img th:src="${car.image3}" class="d-block w-100" alt="Imaged failed to load">
               </div>
               <div class="carousel-item">
-<!--                <img th:src="${car.image4}" class="d-block w-100" alt="Imaged failed to load">-->
+                <img th:src="${car.image4}" class="d-block w-100" alt="Imaged failed to load">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -88,22 +85,20 @@
 
 
         <div class="col-md-3 justify-content-center text-center">
-          <h3></h3>
-          <br><br>
-<!--          <h6 th:text="'Price per day: £' + ${car.price}"></h6>-->
-          <br>
-          <h6>MPH: 980</h6>
+            <h3 th:text="${car.model}"></h3>
+            <br><br>
+            <h6 th:text="'Seats: ' + ${car.seats}"></h6>
+            <br>
+            <h6 th:text="'Transmission: ' + ${car.transmission}"></h6>
+            <br>
+            <h6 th:text="'Price per day: £' + ${car.price}"></h6>
           <br>
           <a href="/rent" class="btn btn-dark">Rent</a>
         </div>
         <div class="col-md-3 justify-content-center text-center">
-          <h3>Car Features</h3>
+          <h3>Description</h3>
           <br><br>
-          <h6>4 Seater</h6>
-          <br>
-          <h6>Electric</h6>
-          <br>
-          <h6>Has windows</h6>
+          <h6 th:text="${car.description}"></h6>
         </div>
       </div>
       <!--<div class="row">-->
