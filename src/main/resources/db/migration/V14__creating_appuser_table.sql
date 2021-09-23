@@ -1,0 +1,10 @@
+--CREATE TABLE app_user (
+--    id bigserial PRIMARY KEY,
+--    first_name varchar(30),
+--    last_name varchar(30),
+--    email varchar(30),
+--    password varchar(30),
+--    app_user_role varchar,
+--    locked boolean,
+--    enabled boolean
+--);

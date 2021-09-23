@@ -1,0 +1,8 @@
+--CREATE TABLE confirmation_token (
+--   id bigserial PRIMARY KEY,
+--   app_user_id BIGINT,
+--   token varchar,
+--   created_at timestamp,
+--   expires_at timestamp,
+--   confirmed_at timestamp
+--);

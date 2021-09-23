@@ -25,9 +25,9 @@ public class UserController {
         return "/signin";
     }
 
-    @PostMapping("/signInUser")
-    public String signInUser() {
-        return "/signup";
-    }
+//    @PostMapping("/signInUser")
+//    public String signInUser() {
+//        return "/signup";
+//    }
 }
 
