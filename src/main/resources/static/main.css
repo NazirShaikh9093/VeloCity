@@ -188,6 +188,7 @@ form {
   margin-right: auto;
 }
 
+
 .signup_form{
   padding: 20px;
   border-radius: 5px;
@@ -251,4 +252,13 @@ h4 {
   font-weight: 1;
   color: white;
   font-size: 1.8rem;
+
+.carousel {
+  width: auto;
+  height: 380px;
+}
+
+.carousel-images {
+  width: auto;
+  height: 370px;
 }
