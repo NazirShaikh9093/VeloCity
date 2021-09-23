@@ -1,6 +1,6 @@
-//package VeloCity.VeloCity.appuser;
-//
-//public enum AppUserRole {
-//    USER,
-//    ADMIN
-//}
+package VeloCity.VeloCity.appuser;
+
+public enum AppUserRole {
+    USER,
+    ADMIN
+}
