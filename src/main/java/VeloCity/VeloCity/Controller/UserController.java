@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
+    @GetMapping("/signup")
+    public String signup() {
+        return "/signup";
+    }
+
     @GetMapping("/signin")
     public String signin() {
         return "/signin";

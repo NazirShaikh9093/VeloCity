@@ -7,10 +7,6 @@ img {
 .card {
     margin-top: 20px;
     margin-bottom: 10px;
-    color: whitesmoke;
-    background-color: black;
-    border: 3px solid black;
-    border-radius .25rem;
 }
 
 .btn {
@@ -21,9 +17,12 @@ img {
 
 footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 90px;
   margin-bottom: 1px;
   padding-bottom: 1px;
+  color: whitesmoke;
+  background-color: black;
+  opacity: 0.9;
 }
 
 .viewingCar {
@@ -85,7 +84,7 @@ nav {
   color: whitesmoke;
   opacity: 0.7;
   text-align: center;
-  padding: 19px;
+  padding: 30px;
 
 }
 
@@ -187,4 +186,69 @@ form {
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.signup_form{
+  padding: 20px;
+  border-radius: 5px;
+  background-color:black;
+  justify-content: center;
+  color: whitesmoke;
+  border-style: solid;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  width: 30rem;
+  height: auto;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.form-label {
+  margin-bottom: 0px;
+  margin-top: 1px;
+}
+
+#checkbox{
+  padding-left: 0;
+  margin-top: 3px;
+}
+
+.form-control {
+  background: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: solid 1px whitesmoke;
+  -webkit-box-shadow: 0 0 0 30px black inset !important;
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+  padding: 0px;
+}
+@-webkit-keyframes autofill {
+  0%,100% {
+      color: white;
+      background: transparent;
+  }
+}
+
+
+::placeholder {
+  color: grey !important;
+}
+
+#signuplogo{
+  width: 80%;
+  height: 80%;
+  display: block;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+h4 {
+  font-weight: 1;
+  color: white;
+  font-size: 1.8rem;
 }
